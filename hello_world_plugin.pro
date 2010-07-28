@@ -8,13 +8,14 @@ TARGET = hello_world_plugin
 TEMPLATE = lib
 CONFIG += plugin
 
-LIBS += -L../parlevision-all-build/libs -lplvcore -lplvgui
+LIBS += -lplvcore -lplvgui
 macx {
     LITERAL_DOT=.
     LITERAL_LIB=lib
     LIBRARYFILE = $$DISTDIR$$LITERAL_LIB$$TARGET$$LITERAL_DOT$$QMAKE_EXTENSION_SHLIB
+    LIBS+= -L../parlevision-all-build/libs/ParleVision.app/Contents/Frameworks
     LIBS+= -framework OpenCV
-    #QMAKE_POST_LINK  = install_name_tool -change libplvcore.dylib @executable_path/../Frameworks/libplvcore.dylib $$LIBRARYFILE
+    QMAKE_POST_LINK  = install_name_tool -change libplvcore.dylib @loader_path/../Frameworks/libplvcore.dylib $$LIBRARYFILE
     #QMAKE_POST_LINK += && install_name_tool -change libplvgui.dylib @executable_path/../Frameworks/libplvgui.dylib $$LIBRARYFILE
 }
 
