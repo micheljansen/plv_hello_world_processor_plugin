@@ -16,7 +16,7 @@ macx {
     LIBS+= -L../parlevision-all-build/libs/ParleVision.app/Contents/Frameworks
     LIBS+= -framework OpenCV
     QMAKE_POST_LINK  = install_name_tool -change libplvcore.dylib @loader_path/../Frameworks/libplvcore.dylib $$LIBRARYFILE
-    #QMAKE_POST_LINK += && install_name_tool -change libplvgui.dylib @executable_path/../Frameworks/libplvgui.dylib $$LIBRARYFILE
+    #QMAKE_POST_LINK += && install_name_tool -change libplvgui.dylib loader_path/../Frameworks/libplvgui.dylib $$LIBRARYFILE
 }
 
 INCLUDEPATH += ../parlevision/include \
