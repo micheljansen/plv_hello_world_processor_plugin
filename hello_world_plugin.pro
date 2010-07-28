@@ -14,7 +14,7 @@ macx {
     LITERAL_LIB=lib
     LIBRARYFILE = $$DISTDIR$$LITERAL_LIB$$TARGET$$LITERAL_DOT$$QMAKE_EXTENSION_SHLIB
     LIBS+= -framework OpenCV
-    QMAKE_POST_LINK  = install_name_tool -change libplvcore.dylib @executable_path/../Frameworks/libplvcore.dylib $$LIBRARYFILE
+    #QMAKE_POST_LINK  = install_name_tool -change libplvcore.dylib @executable_path/../Frameworks/libplvcore.dylib $$LIBRARYFILE
     #QMAKE_POST_LINK += && install_name_tool -change libplvgui.dylib @executable_path/../Frameworks/libplvgui.dylib $$LIBRARYFILE
 }
 
